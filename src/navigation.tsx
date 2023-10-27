@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./Screens/Home";
 import DogScreen from "./Screens/Dog";
+import CountryHome from "./Screens/CountryHome";
 
 const Stack = createNativeStackNavigator();
 
@@ -22,6 +23,13 @@ function Navigation() {
           component={DogScreen}
           options={{
             title: "Dog Home",
+          }}
+        />
+        <Stack.Screen
+          name="CountryHome"
+          component={CountryHome}
+          options={{
+            title: "To Countries",
           }}
         />
       </Stack.Navigator>

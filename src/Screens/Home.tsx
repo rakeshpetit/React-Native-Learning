@@ -19,6 +19,12 @@ function HomeScreen({ navigation }) {
           navigation.navigate("Dog");
         }}
       />
+      <Button
+        title="To Countries"
+        onPress={() => {
+          navigation.navigate("CountryHome");
+        }}
+      />
     </View>
   );
 }
