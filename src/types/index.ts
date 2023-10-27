@@ -16,4 +16,13 @@ type State = {
   state: string;
 };
 
-export type { CountryAPI, Country, StateAPI, State };
+type CityAPI = {
+  status: string;
+  data: City[];
+};
+
+type City = {
+  city: string;
+};
+
+export type { CountryAPI, Country, StateAPI, State, CityAPI, City };

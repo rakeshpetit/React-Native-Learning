@@ -21,8 +21,9 @@ export const pickCountryStyles = StyleSheet.create({
   container: {
     flex: 0,
     paddingVertical: 10,
+    paddingHorizontal: 30,
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
   },
 });

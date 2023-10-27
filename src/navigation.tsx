@@ -8,6 +8,7 @@ import CountryHome from "./Screens/CountryHome";
 import { store } from "./store";
 import CountryList from "./Screens/CountryHome/CountryList";
 import StateList from "./Screens/CountryHome/StateList";
+import CityList from "./Screens/CountryHome/CityList";
 
 const Stack = createNativeStackNavigator();
 
@@ -41,14 +42,21 @@ function Navigation() {
             name="CountryList"
             component={CountryList}
             options={{
-              title: "All Countries",
+              title: "Countries",
             }}
           />
           <Stack.Screen
             name="StateList"
             component={StateList}
             options={{
-              title: "All States",
+              title: "States",
+            }}
+          />
+          <Stack.Screen
+            name="CityList"
+            component={CityList}
+            options={{
+              title: "Cities",
             }}
           />
         </Stack.Navigator>

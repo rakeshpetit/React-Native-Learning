@@ -4,10 +4,12 @@ import { countryStyles as styles } from "./styles";
 import PickCountry from "./PickCountry";
 import { useAppSelector } from "../../store/hooks";
 import PickState from "./PickState";
+import PickCity from "./PickCity";
 
 function CountryHome({ navigation }) {
   const country = useAppSelector((state) => state.selection.country);
   const state = useAppSelector((state) => state.selection.state);
+  const city = useAppSelector((state) => state.selection.city);
 
   return (
     <View style={styles.container}>
@@ -16,6 +18,7 @@ function CountryHome({ navigation }) {
       </View>
       <PickCountry navigation={navigation} country={country} />
       {country && <PickState navigation={navigation} state={state} />}
+      {country && state && <PickCity navigation={navigation} city={city} />}
     </View>
   );
 }
