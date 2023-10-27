@@ -6,6 +6,7 @@ import HomeScreen from "./Screens/Home";
 import DogScreen from "./Screens/Dog";
 import CountryHome from "./Screens/CountryHome";
 import { store } from "./store";
+import CountryList from "./Screens/CountryList";
 
 const Stack = createNativeStackNavigator();
 
@@ -28,12 +29,18 @@ function Navigation() {
               title: "Dog Home",
             }}
           />
-
           <Stack.Screen
             name="CountryHome"
             component={CountryHome}
             options={{
               title: "To Countries",
+            }}
+          />
+          <Stack.Screen
+            name="CountryList"
+            component={CountryList}
+            options={{
+              title: "All Countries",
             }}
           />
         </Stack.Navigator>

@@ -1,20 +1,28 @@
 import * as React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Button } from "react-native";
 import { countryStyles as styles } from "./styles";
-import { useGetCountriesQuery } from "../api";
 
-function CountryHome() {
-  const { data, isLoading, error } = useGetCountriesQuery();
-
-  if (isLoading) return <Text>Loading...</Text>;
-  else if (error) return <Text>Error</Text>;
-
-  console.log(data.data);
-
+function CountryHome({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.label}>Countries</Text>
-      <Text>Pick a Country</Text>
+      <View style={{ alignItems: "center", marginVertical: 10 }}>
+        <Text style={styles.label}>Choose your City</Text>
+      </View>
+      <View
+        style={{
+          flex: 0,
+          paddingVertical: 10,
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-around",
+        }}
+      >
+        <Text>Pick a Country</Text>
+        <Button
+          title="Albania"
+          onPress={() => navigation.navigate("CountryList")}
+        />
+      </View>
     </View>
   );
 }

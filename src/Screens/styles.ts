@@ -17,9 +17,8 @@ export const styles = StyleSheet.create({
 
 export const countryStyles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 0,
     backgroundColor: "white",
-    alignItems: "center",
     justifyContent: "center",
   },
   label: {
