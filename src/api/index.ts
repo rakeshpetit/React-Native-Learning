@@ -2,14 +2,19 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { CountryAPI } from "../types";
 
 const baseUrl = "http://api.airvisual.com/";
-const apiKey = "e1964b66-4708-43ce-99c9-0da951562e47";
+const API_KEY = "YOUR_API_KEY";
+
+const listCountries = `v2/countries?key=${API_KEY}`;
 
 export const airVisualApi = createApi({
   reducerPath: "airVisualApi",
-  baseQuery: fetchBaseQuery({ baseUrl }),
+  baseQuery: fetchBaseQuery({
+    baseUrl,
+  }),
+  keepUnusedDataFor: 600,
   endpoints: (builder) => ({
     getCountries: builder.query<CountryAPI, void>({
-      query: () => `v2/countries?key=${apiKey}`,
+      query: () => listCountries,
     }),
   }),
 });

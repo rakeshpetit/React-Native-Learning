@@ -6,13 +6,10 @@ import { useGetCountriesQuery } from "../api";
 function CountryHome() {
   const { data, isLoading, isError } = useGetCountriesQuery();
 
-  if (isLoading) {
-    return <Text>Loading...</Text>;
-  } else if (isError) {
-    return <Text>Error</Text>;
-  }
+  if (isLoading) return <Text>Loading...</Text>;
+  else if (isError) return <Text>Error</Text>;
 
-  console.log(data.data[1]);
+  console.log(data.data);
 
   return (
     <View style={styles.container}>
