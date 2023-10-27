@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+import { Country, State } from "../../types";
 
 export interface SelectionState {
   country: string;
@@ -17,10 +18,17 @@ export const selectionSlice = createSlice({
   name: "selection",
   initialState,
   reducers: {
-    selectCountry: (state, action: PayloadAction<string>) => {
+    selectCountry: (state, action: PayloadAction<Country["country"]>) => {
+      if (state.country !== action.payload) {
+        state.state = "";
+        state.city = "";
+      }
       state.country = action.payload;
     },
-    selectState: (state, action: PayloadAction<string>) => {
+    selectState: (state, action: PayloadAction<State["state"]>) => {
+      if (state.state !== action.payload) {
+        state.city = "";
+      }
       state.state = action.payload;
     },
     selectCity: (state, action: PayloadAction<string>) => {

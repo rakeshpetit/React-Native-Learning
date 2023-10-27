@@ -7,4 +7,13 @@ type Country = {
   country: string;
 };
 
-export type { CountryAPI, Country };
+type StateAPI = {
+  status: string;
+  data: State[];
+};
+
+type State = {
+  state: string;
+};
+
+export type { CountryAPI, Country, StateAPI, State };
