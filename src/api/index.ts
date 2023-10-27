@@ -1,12 +1,16 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { CityAPI, CountryAPI, StateAPI } from "../types";
+import { CityAPI, CountryAPI, StateAPI, WeatherAPI } from "../types";
 import { API_KEY } from "../constants";
 
 const baseUrl = "http://api.airvisual.com/";
 
-type CountryState = {
+type CityInputs = {
   country: string;
   state: string;
+};
+
+type WeatherInputs = CityInputs & {
+  city: string;
 };
 
 export const airVisualApi = createApi({
@@ -22,12 +26,20 @@ export const airVisualApi = createApi({
     getStates: builder.query<StateAPI, string>({
       query: (country) => `v2/states?country=${country}&key=${API_KEY}`,
     }),
-    getCities: builder.query<CityAPI, CountryState>({
+    getCities: builder.query<CityAPI, CityInputs>({
       query: ({ country, state }) =>
         `v2/cities?state=${state}&country=${country}&key=${API_KEY}`,
+    }),
+    getWeather: builder.query<WeatherAPI, WeatherInputs>({
+      query: ({ country, state, city }) =>
+        `v2/city?city=${city}&state=${state}&country=${country}&key=${API_KEY}`,
     }),
   }),
 });
 
-export const { useGetCountriesQuery, useGetStatesQuery, useGetCitiesQuery } =
-  airVisualApi;
+export const {
+  useGetCountriesQuery,
+  useGetStatesQuery,
+  useGetCitiesQuery,
+  useGetWeatherQuery,
+} = airVisualApi;

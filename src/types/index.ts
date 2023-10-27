@@ -1,3 +1,5 @@
+import { Weather } from "./weather";
+
 type CountryAPI = {
   status: string;
   data: Country[];
@@ -25,4 +27,9 @@ type City = {
   city: string;
 };
 
-export type { CountryAPI, Country, StateAPI, State, CityAPI, City };
+type WeatherAPI = {
+  status: string;
+  data: Weather;
+};
+
+export type { CountryAPI, Country, StateAPI, State, CityAPI, City, WeatherAPI };

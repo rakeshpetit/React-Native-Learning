@@ -27,3 +27,17 @@ export const pickCountryStyles = StyleSheet.create({
     justifyContent: "space-between",
   },
 });
+
+export const weatherStyles = StyleSheet.create({
+  container: {
+    flex: 0,
+    paddingVertical: 50,
+    paddingHorizontal: 30,
+    alignItems: "center",
+  },
+  weatherText: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "black",
+  },
+});

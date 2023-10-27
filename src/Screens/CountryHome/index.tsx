@@ -5,6 +5,7 @@ import PickCountry from "./PickCountry";
 import { useAppSelector } from "../../store/hooks";
 import PickState from "./PickState";
 import PickCity from "./PickCity";
+import Weather from "./Weather";
 
 function CountryHome({ navigation }) {
   const country = useAppSelector((state) => state.selection.country);
@@ -19,6 +20,9 @@ function CountryHome({ navigation }) {
       <PickCountry navigation={navigation} country={country} />
       {country && <PickState navigation={navigation} state={state} />}
       {country && state && <PickCity navigation={navigation} city={city} />}
+      {country && state && city && (
+        <Weather country={country} state={state} city={city} />
+      )}
     </View>
   );
 }
