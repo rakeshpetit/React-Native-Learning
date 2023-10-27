@@ -19,7 +19,7 @@ function CountryList({ navigation }) {
       <FlatList
         data={data.data}
         renderItem={({ item, index }) => (
-          <View key={index} style={{ alignItems: "center" }}>
+          <View key={index} style={styles.listContainer}>
             <Button
               title={item.country}
               onPress={() => {

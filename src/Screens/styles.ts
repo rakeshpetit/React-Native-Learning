@@ -21,6 +21,9 @@ export const countryStyles = StyleSheet.create({
     backgroundColor: "white",
     justifyContent: "center",
   },
+  listContainer: {
+    alignItems: "center",
+  },
   label: {
     fontSize: 20,
     fontWeight: "bold",
